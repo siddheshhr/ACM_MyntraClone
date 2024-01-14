@@ -13,21 +13,20 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminData } from "../Redux/Admin/Admin.action";
 
-export default function EditName({handleNameSubmit, name, setName }) {
-  const {adminData}=useSelector((store)=>store.adminManager);
-  const dispatch=useDispatch();
-  const [hideName, setHideName] = useState(false);
-  /* Here's a custom control */
+export default function EditName({ handleNameSubmit, name, setName }) {
+  const { adminData } = useSelector((store) => store.adminManager);
+  const dispatch = useDispatch();
+  const [hideName, setHideName] = useState(true); 
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getAdminData());
-  },[])
+  }, []);
+
   const handleAddAdmin = () => {
     handleNameSubmit();
     setHideName(false);
     dispatch(getAdminData());
     setName("");
-    
   };
 
   function EditableControls() {
@@ -54,6 +53,7 @@ export default function EditName({handleNameSubmit, name, setName }) {
       </Flex>
     );
   }
+
   return (
     <Editable
       textAlign="left"
@@ -66,7 +66,7 @@ export default function EditName({handleNameSubmit, name, setName }) {
       {/* Here is the Custom input */}
       <HStack>
         <Input
-          style={hideName ? { display: "block" } : { display: "none" }}
+          style={{ display: "none" }} 
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

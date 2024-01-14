@@ -14,6 +14,7 @@ import PaymentNavbar from "../Components/PaymentNavbar";
 import { useNavigate } from "react-router-dom";
 import { deleteCartAPI } from "../Redux/Cart/Cart.api";
 import { postCheckoutData } from "../Redux/Checkout/Checkout.action";
+const isvalid=true;
 
 const Cart = () => {
   const { loading, error } = useSelector((store) => store.cart);
@@ -23,16 +24,26 @@ const Cart = () => {
   const [sampleData, setSampleData] = useState([]);
 
   const fetchCartAPI = async () => {
-    let res = await axios.get(`https://vastra.onrender.com/cart`);
-    const result = res?.data?.map((item) => {
-      return {
-        ...item,
-        isChecked: false,
-        qty: 1,
-      };
-    });
-    setSampleData(result);
+    const cart_ =isvalid;
+    if (cart_) {
+      throw new Error("Error fetching cart data");
+    }
+    try {
+      let res = await axios.get(`https://vastra.onrender.com/cart`);
+      const result = res?.data?.map((item) => {
+        return {
+          ...item,
+          isChecked: false,
+          qty: 1,
+        };
+      });
+      setSampleData(result);
+    } catch (error) {
+      console.error("Error fetching cart data:", error.message);
+      // You can handle the error or leave it unhandled for testing purposes
+    }
   };
+
   useEffect(() => {
     dispatch(fetchCartData());
     fetchCartAPI();

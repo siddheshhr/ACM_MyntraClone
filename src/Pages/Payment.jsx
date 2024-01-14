@@ -22,9 +22,10 @@ import { deleteCartData, fetchCartData } from "../Redux/Cart/Cart.action";
 import { deleteCheckoutData, getCheckoutData } from "../Redux/Checkout/Checkout.action";
 
 function Payment() {
+  const [disablePlaceOrder, setDisablePlaceOrder] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [code, setCode] = useState("");
-  const navigate = useNavigate();
+  
   const [value, setValue] = useState({
     cardno: "",
     cardName: "",
@@ -86,7 +87,7 @@ function Payment() {
 
       return;
     }
-    navigate("/success");
+    setDisablePlaceOrder(true);   
   };
   const handleSubmitCard = () => {
     for (let i = 0; i < cartData.length; i++) {
@@ -104,7 +105,7 @@ function Payment() {
       });
       return;
     }
-    navigate("/success");
+    setDisablePlaceOrder(true);
   };
   return (
     <>
@@ -264,6 +265,7 @@ function Payment() {
                                 backgroundColor: "#fff36c",
                               }}
                               onClick={handleSubmit}
+                              disabled={disablePlaceOrder}
                             >
                               Place Order
                             </Button>

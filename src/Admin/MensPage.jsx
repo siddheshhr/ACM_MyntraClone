@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AdminNavbar from "./AdminNavbar";
 import { deleteMensData, getMensData, updateMensData } from "../Redux/Admin/Admin.action";
 import Tablecard from "./Tablecard";
+const validreq=true;
 
 const MensPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -42,12 +43,18 @@ const MensPage = () => {
     dispatch(deleteMensData(id)).then(()=>dispatch(getMensData()))
   };
 
+
   const handleUpdate=()=> {
-    dispatch(updateMensData(id, price, discount, StrikePrice)).then(()=>{
-       dispatch(getMensData());
-      onClose();
-    })
-     
+    if(validreq){
+      console.log("error");    
+
+    }
+    else{
+      dispatch(updateMensData(id, price, discount, StrikePrice)).then(()=>{
+        dispatch(getMensData());
+       onClose();
+     })
+    }    
  };
 const handleOpen=(id)=>{
   setId(id);

@@ -103,7 +103,7 @@ export default function UserCard({name,email,contact,isAuth,id,deleteUsers, imag
     <Button flex='1' _hover={{color:'white',backgroundColor:'pink.700'}} variant='ghost' leftIcon={<BsRecord2 />}>
       Order
     </Button>
-    <Button flex='1' _hover={{color:'white',backgroundColor:'pink.700'}} variant='ghost' leftIcon={<AiOutlineDelete />} onClick={()=>deleteUsers(id)} >
+    <Button flex='1' _hover={{color:'white',backgroundColor:'pink.700'}} variant='ghost' leftIcon={<AiOutlineDelete />} onClick={()=>console.log("hi")} >
       Delete
     </Button>
   </CardFooter>

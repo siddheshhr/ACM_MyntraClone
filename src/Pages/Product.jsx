@@ -92,11 +92,15 @@ const Product = () => {
     e.preventDefault();
     if (checked) {
       setChecked(false);
+      setBrand(null); 
     } else {
       setChecked(true);
-      setBrand(e.target.value);
+      const randomBrand = brands[Math.floor(Math.random() * brands.length)];
+      setBrand(randomBrand);
     }
   };
+
+
   //console.log("isChecked", checked);
   /*brand filter ends here */
 

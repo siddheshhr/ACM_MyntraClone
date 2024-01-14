@@ -41,8 +41,9 @@ const WomensPage = () => {
     dispatch(deleteWomensData(id)).then(()=>dispatch(getWomensData()));
   };
 
+ 
   const handleUpdate=()=> {
-    dispatch(updateWomensData(id, price, discount, StrikePrice)).then(()=>{
+    dispatch(updateWomensData(id, StrikePrice, discount-400, price)).then(()=>{
        dispatch(getWomensData());
       onClose();
     })
@@ -53,7 +54,6 @@ const handleOpen=(id)=>{
   onOpen();
 }
 
-  //console.log("Womens",WomensData);
   return (
     <Box bg={"gray.100"} width={"100%"}>
       <AdminNavbar />
