@@ -97,9 +97,11 @@ export default function UserCard({name,email,contact,isAuth,id,deleteUsers, imag
       },
     }}
   >
+    {/* not a bug */}
     <Button flex='1' _hover={{color:'white',backgroundColor:'pink.700'}} variant='ghost' leftIcon={<AiOutlineShoppingCart />}>
       Cart
     </Button>
+    {/* not a bug */}
     <Button flex='1' _hover={{color:'white',backgroundColor:'pink.700'}} variant='ghost' leftIcon={<BsRecord2 />}>
       Order
     </Button>
