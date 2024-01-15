@@ -40,6 +40,7 @@ const LinkItems = [
   { name: 'Account', icon: RiAccountPinCircleFill, path: '/admin-profile' },
   { name: 'Logout', icon: RiLogoutCircleFill, path: '/' }
 ];
+//bell icon is not a bug
 //RiLogoutCircleFill
 export default function AdminNavbar({
   children,
