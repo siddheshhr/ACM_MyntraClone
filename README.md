@@ -10,3 +10,5 @@ git clone https://github.com/siddheshhr/ACM_MyntraClone
 
 3) Installing the nodemodules
    npm install 
+
+4)Run nodemon App.js to start the react applications
