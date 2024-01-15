@@ -6,6 +6,8 @@ import SimpleImageSlider from "react-simple-image-slider";
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer'
 // import { LoginOrSignUp } from './Pages/LoginOrSignUp';
+//home & living,beauty,studio is not a bug
+//search bar is not a bug
 
 const Home = () => {
   const [OmgDeals, setOmgDeals] = useState([]);
